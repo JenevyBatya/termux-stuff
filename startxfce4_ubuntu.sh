@@ -4,8 +4,10 @@
 kill -9 $(pgrep -f "termux.x11") 2>/dev/null
 
 # Enable PulseAudio over Network
-pulseaudio -D
-pulseaudio --start
+killall pulseaudio
+pulseaudio -k && sudo alsa force-reload && sleep 2 && pulseaudio -k && sudo alsa force-reload
+#pulseaudio -D
+#pulseaudio --start
 
 # Prepare termux-x11 session
 export XDG_RUNTIME_DIR=${TMPDIR}
