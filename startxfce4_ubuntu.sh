@@ -5,6 +5,8 @@ kill -9 $(pgrep -f "termux.x11") 2>/dev/null
 
 # Enable PulseAudio over Network
 killall pulseaudio
+pulseaudio --start
+pulseaudio -D
 pulseaudio -k && sudo alsa force-reload && sleep 2 && pulseaudio -k && sudo alsa force-reload
 #pulseaudio -D
 #pulseaudio --start
