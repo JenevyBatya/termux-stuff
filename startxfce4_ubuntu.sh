@@ -11,7 +11,7 @@ pulseaudio -k && sudo alsa force-reload && sleep 2 && pulseaudio -k && sudo alsa
 
 # Prepare termux-x11 session
 export XDG_RUNTIME_DIR=${TMPDIR}
-termux-x11 :0 >/dev/null &
+termux-x11 :1 >/dev/null &
 
 # Wait a bit until termux-x11 gets started.
 sleep 3
