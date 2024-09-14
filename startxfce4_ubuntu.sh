@@ -11,7 +11,7 @@ pulseaudio -k && sudo alsa force-reload && sleep 2 && pulseaudio -k && sudo alsa
 
 # Prepare termux-x11 session
 export XDG_RUNTIME_DIR=${TMPDIR}
-termux-x11 :1 >/dev/null &
+termux-x11 :0 >/dev/null &
 
 # Wait a bit until termux-x11 gets started.
 sleep 3
@@ -25,6 +25,6 @@ sleep 1
 # See also: https://github.com/termux/proot-distro
 # Argument -- acts as terminator of proot-distro login options processing.
 # All arguments behind it would not be treated as options of PRoot Distro.
-proot-distro login ubuntu --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - jenevy -c "env DISPLAY=:1 startxfce4"'
+proot-distro login ubuntu --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - jenevy -c "env DISPLAY=:0 startxfce4"'
 
 exit 0
